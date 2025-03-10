@@ -24,5 +24,14 @@ public class Pokemon {
         this.generation = generation;
         this.isLegendary = isLegendary;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + name + "\nNúmero en la pokedex: " + pokedexNumber + "\nTipo 1: " + type1 + "\nTipo 2: " + type2 + "\nClasificación: " + classification + "\nAltura: " + height + "\nPeso: " + weight + "\nHabilidades: " + abilities + "\nGeneración: " + generation + "\nEs legendario: " + isLegendary;
+    }
     
 }
