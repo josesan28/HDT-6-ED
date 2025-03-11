@@ -31,15 +31,20 @@ public class PokemonManager {
             System.out.println("El pokemon no existe");
         } 
         else {
-            pokemon.toString();
+            System.out.println(pokemon.toString());
         }
     }
 
     public void showNameAndType1InUserCollection() {
         List<Pokemon> pokemonList = new ArrayList<>(userCollection.values());
-        pokemonList.sort(Comparator.comparing(pokemon -> pokemon.type1));
-        for (Pokemon pokemon : pokemonList) {
-            System.out.println("Nombre: " + pokemon.name + " Tipo 1: " + pokemon.type1);
+        if (pokemonList.isEmpty()) {
+            System.out.println("No tienes pokemons en tu colección");
+        } 
+        else {
+            pokemonList.sort(Comparator.comparing(pokemon -> pokemon.type1));
+            for (Pokemon pokemon : pokemonList) {
+                System.out.println("Nombre: " + pokemon.name + " Tipo 1: " + pokemon.type1);
+            }
         }
     }
 
@@ -51,12 +56,19 @@ public class PokemonManager {
         }
     }
 
-    public String showNameByAbility(String ability) {
+    public String showNamesByAbility(String ability) {
+        List<String> pokemonNames = new ArrayList<>();
         for (Pokemon pokemon : pokemonMap.values()) {
             if (pokemon.abilities.contains(ability)) {
-                return pokemon.name;
+                pokemonNames.add(pokemon.name);
             }
         }
-        return "No se encontró ningún pokemon con esa habilidad";
+
+        if (pokemonNames.isEmpty()) {
+            return "No se encontraron pokemons con esa habilidad";
+        } 
+        else {
+            return "Pokemons con la habilidad " + ability + ": " + pokemonNames;
+        }
     }   
 }
