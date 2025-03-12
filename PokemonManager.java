@@ -1,3 +1,11 @@
+/**
+ *  @author José Manuel Sanchez Hernández - 24092
+ *  @version 1.0
+ *  Descripción: Clase que contiene los métodos para manejar los pokemons
+ *  Fecha de creación: 09/03/2025
+ *  Fecha de última modificación: 11/03/2025
+ */
+
 import java.util.*;
 
 public class PokemonManager {
@@ -5,11 +13,19 @@ public class PokemonManager {
     private Map<String, Pokemon> pokemonMap;
     private LinkedHashMap<String, Pokemon> userCollection;
 
+    /**
+     * Constructor de la clase PokemonManager
+     * @param pokemonMap Mapa que contiene los pokemons
+     */
     public PokemonManager(Map<String, Pokemon> pokemonMap) {
         this.pokemonMap = pokemonMap;
         this.userCollection = new LinkedHashMap<>();
     }
 
+    /**
+     * Método que añade un pokemon a la colección del usuario
+     * @param pokemonName Nombre del pokemon a añadir
+     */
     public void addPokemonToUserCollection(String pokemonName) {
         if (pokemonMap.containsKey(pokemonName)) {
             if (userCollection.containsKey(pokemonName)) {
@@ -25,6 +41,10 @@ public class PokemonManager {
         }     
     }
 
+    /**
+     * Método que muestra los datos de un pokemon
+     * @param pokemonName Nombre del pokemon a mostrar
+     */
     public void showPokemonData(String pokemonName) {
         Pokemon pokemon = pokemonMap.get(pokemonName);
         if (pokemon == null) {
@@ -35,6 +55,9 @@ public class PokemonManager {
         }
     }
 
+    /**
+     * Método que muestra el nombre y tipo 1 de los pokemons en la colección del usuario
+     */
     public void showNameAndType1InUserCollection() {
         List<Pokemon> pokemonList = new ArrayList<>(userCollection.values());
         if (pokemonList.isEmpty()) {
@@ -48,6 +71,9 @@ public class PokemonManager {
         }
     }
 
+    /**
+     * Método que muestra el nombre y tipo 1 de todos los pokemons
+     */
     public void showAllNameAndType1() {
         List<Pokemon> pokemonList = new ArrayList<>(pokemonMap.values());
         pokemonList.sort(Comparator.comparing(pokemon -> pokemon.type1));
@@ -56,6 +82,11 @@ public class PokemonManager {
         }
     }
 
+    /**
+     * Método que muestra los nombres de los pokemons que tienen una habilidad específica
+     * @param ability Habilidad a buscar
+     * @return Nombres de los pokemons que tienen la habilidad
+     */
     public String showNamesByAbility(String ability) {
         List<String> pokemonNames = new ArrayList<>();
         for (Pokemon pokemon : pokemonMap.values()) {
@@ -72,6 +103,10 @@ public class PokemonManager {
         }
     }  
     
+    /**
+     * Método que devuelve la colección del usuario
+     * @return Colección del usuario
+     */
     public LinkedHashMap<String, Pokemon> getUserCollection() {
         return userCollection;
     }

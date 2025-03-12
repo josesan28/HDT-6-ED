@@ -1,3 +1,11 @@
+/**
+ *  @author José Manuel Sanchez Hernández - 24092
+ *  @version 1.0
+ *  Descripción: Clase que se encarga de cargar los datos de los pokemons desde un archivo CSV
+ *  Fecha de creación: 09/03/2025
+ *  Fecha de última modificación: 11/03/2025
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,6 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 public class DataManager {
+
+    /**
+     * Método que carga los datos de los pokemons desde un archivo CSV
+     * @param filePath Ruta del archivo CSV
+     * @param pokemonMap Mapa que contiene los pokemons
+     * @return Mapa que contiene los pokemons
+     */
     public static Map<String, Pokemon> loadPokemonData(String filePath, Map<String, Pokemon> pokemonMap) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;

@@ -1,3 +1,11 @@
+/**
+ *  @author José Manuel Sanchez Hernández - 24092
+ *  @version 1.0
+ *  Descripción: Clase principal del programa
+ *  Fecha de creación: 11/03/2025
+ *  Fecha de última modificación: 11/03/2025
+ */
+
 import java.util.Scanner;
 import java.util.Map;
 
