@@ -70,5 +70,9 @@ public class PokemonManager {
         else {
             return "Pokemons con la habilidad " + ability + ": " + pokemonNames;
         }
-    }   
+    }  
+    
+    public LinkedHashMap<String, Pokemon> getUserCollection() {
+        return userCollection;
+    }
 }
